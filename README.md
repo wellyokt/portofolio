@@ -1,4 +1,4 @@
-# Ads Click Prediction 🏠
+# Ads Click Prediction 
 
 ## Project Overview
 
