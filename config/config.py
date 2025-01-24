@@ -7,6 +7,7 @@ class Config:
     ARTIFACTS_DIR = BASE_DIR / "artifacts"
     LOGS_DIR = BASE_DIR / "logs"
     STATIC_DIR = BASE_DIR / "static"
+    CV_DIR = BASE_DIR/'cv'
     
     # Data paths
     DATA_PATH = ARTIFACTS_DIR / "advertising.csv"
@@ -14,6 +15,12 @@ class Config:
     SCALER_PATH = ARTIFACTS_DIR / "scaler.pkl"
     METRICS_PATH = ARTIFACTS_DIR / "metrics.json"
     FEATURE_IMPORTANCE_PATH = ARTIFACTS_DIR / "feature_importance.json"
+
+    #Profile
+    FOTO_PATH = CV_DIR / "IMG_0236.png"
+    project1_image = CV_DIR / "google-adsense-moves-to-pay-per-impression.png"
+
+
     
     # Model parameters
     RANDOM_STATE = 42
@@ -68,25 +75,7 @@ class Config:
 }
     
     
-    # Model performance thresholds
-    METRIC_THRESHOLDS = {
-        'r2_score': 0.8,
-        'mae': 3.0,
-        'rmse': 4.0
-    }
-    
-    # Data validation rules
-    DATA_VALIDATION = {
-        'CRIM': {'min': 0, 'max': 100},
-        'RM': {'min': 3, 'max': 9},
-        'LSTAT': {'min': 0, 'max': 40},
-        'PTRATIO': {'min': 12, 'max': 22},
-        'INDUS': {'min': 0, 'max': 30},
-        'TAX': {'min': 150, 'max': 800},
-        'NOX': {'min': 0.3, 'max': 0.9},
-        'B': {'min': 0, 'max': 400}
-    }
-    
+
     @classmethod
     def create_directories(cls):
         """Create necessary directories if they don't exist."""

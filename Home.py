@@ -11,13 +11,17 @@ from config.config import Config
 import plotly.express as px
 import requests
 import json
+from PIL import Image
+import base64
+from pathlib import Path
+
 
 
 
 # Set page
 
 
-st.set_page_config(page_title='Lokasi Insight', page_icon=f"./data/Image_ic.ico", layout='wide')
+st.set_page_config(page_title='Welly Oktariana Portofolio', page_icon=f"./data/Image_ic.ico", layout='wide')
 
 # Hide button at the top right of the page
 hide_button()
@@ -26,11 +30,12 @@ hide_button()
 with st.sidebar:
 # Menu in Sidebar
     item = sac.menu([
-        sac.MenuItem('Overview', icon='house-fill'),
         sac.MenuItem('Profile', icon="bi bi-person-lines-fill"),
+        sac.MenuItem('Ads Click Project', disabled=True),
+        sac.MenuItem('Overview', icon='house-fill'),
         sac.MenuItem('Analytics', icon="bi bi-clipboard-data-fill"),
         sac.MenuItem('Predictions', icon="bi bi-search")],
-          format_func='title', open_all=False, open_index=0, size=14)
+         format_func='title', size='md',open_all=False,color='blue',indent=15, open_index=0, )
 
 if item =='Overview':
  
@@ -76,45 +81,151 @@ if item =='Overview':
 
 
 if item =='Profile':
+  
+    st.markdown(
+    """
+    <div style="display: flex; justify-content: center;">
+        <h1> Welcome to my portofolio </h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
     
 
-    st.markdown("""
-    <div style="text-align: center;">
-        <h4 style="font-weight:bold; margin-bottom: 0px; padding-bottom: 4px; padding-top: 0px;">Welly Oktariana, S.T</h3>
-        <h5 style="font-weight:bold; margin-top: 0px; padding-bottom: 0px; padding-top: 0px;">Data Analyst | Data Science | Machine Learning</h4>
-        <ppadding-bottom: 0px; padding-top: 0px;>South Tangerang, Banten | 0822-4767-8101 | <a href="mailto:wellyoktariana08@gmail.com">wellyoktariana08@gmail.com</a> | <a href="https://www.linkedin.com/in/wellyoktariana/" target="_blank">LinkedIn</a></p>
-    </div>
-    <div style ="font-weight:bold; text-align: left; margin-left:200px; margin-top:50px;">SUMMARY</div>
-    <div style="font-weight: bold; text-align: left; margin-left: 200px; margin-right:200px; margin-top: 0px; border-top: 2px solid grey; width: 65%;"></div>
-    <div style ="text-align: left; font-size:16px; margin-left:200px; margin-right:200px; margin-top:0px;">Data Analyst with 1+ year of experience in building machine learning models, performing spatial analysis, and leveraging data visualization techniques to deliver actionable insights that support strategic decision-making and drive business outcomes.</div>
-    <div style ="font-weight:bold; text-align: left; margin-left:200px; margin-top:30px;">PROFESSIONAL EXPERIENCES</div>
-    <div style="font-weight: bold; text-align: left; margin-left: 200px; margin-right:200px; margin-top: 0px; border-top: 2px solid grey; width: 65%;"></div>
-    <div style="font-weight:bold; text-align: left; margin-left:200px; margin-top:5px;">
-        <h6>PT. Bhumi Varta Technology</h6>
-        <p><strong>Data Analyst</strong> <em>(May 2023 - Present)</em></p>
-        <ul>
-            <li>Conducted detailed analysis of datasets to identify key trends, patterns, and insights, driving data-driven decisions.</li>
-            <li>Developed and implemented machine learning models (e.g., regression, classification) to solve business challenges and improve outcomes.</li>
-            <li>Created interactive dashboards and visual reports to effectively communicate insights and performance metrics to stakeholders.</li>
-        </ul>
-        <h6>GIS Technician <em>(Feb - Apr 2023)</em></h5>
-        <ul>
-            <li>POI data preparation, concept and method initiation, and team training.</li>
-            <li>Monitoring, discussion, and quality control of data validation results.</li>
-        </ul>
-        <h6>GIS Operator <em>(Oct 2021 - Jan 2023)</em></h6>
-        <ul>
-            <li>Collecting and cleaning POI data, validation of POI data, POI sampling accuracy, complete depth POI data, and digitization.</li>
-        </ul>
-        <h6>Badan Pendapatan Daerah DKI Jakarta</h6>
-        <p><strong>Mapping Surveyor</strong> <em>(Oct 2020 - Sep 2021)</em></p>
-        <ul>
-            <li>Coordinated PBB mapping activities in Palmerah District, including verifying and processing PBB-P2 tax data, and providing progress reports to the Field and Regional Managers.</li>
-        </ul>
-    </div>""", unsafe_allow_html=True)
-                
-        
-                
+
+    # CSS pour l'image ronde et le conteneur
+    st.markdown(
+        """
+        <style>
+        .round-img {
+            border-radius: 50%;
+            width: 400px; /* Ajustez la taille selon vos besoins */
+            height: 400px; /* Ajustez la taille selon vos besoins */
+            object-fit: cover;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    # image
+    def img_to_bytes(img_path):
+        img_bytes = Path(img_path).read_bytes()
+        encoded = base64.b64encode(img_bytes).decode()
+        return encoded
+    
+    def img_to_html(img_path):
+        img_html = "<img src='data:image/png;base64,{}' class='img-fluid'>".format(
+            img_to_bytes(img_path)
+        )
+        return img_html
+    image_url = Config.FOTO_PATH
+    
+    col_image = st.columns ([3,7])
+    with col_image[0]:
+        st.markdown("""
+        <style>
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            display: block;
+        }
+        """, unsafe_allow_html=True)
+        st.markdown(img_to_html(image_url), unsafe_allow_html=True)
+
+
+
+    with col_image[1]:
+        st.text('')
+        st.text('')
+        st.text('')
+        st.text('')
+        st.text('')
+        st.text('')
+        st.text('')
+        st.text('')
+        st.text('')
+
+        # Conteneur principal
+        st.markdown(
+            f"""
+            <div class="container">
+                <div class="text-container">
+                    <h1>Welly Oktariana</h1>
+                    <h5 style="font-weight:bold; margin-top: 0px; padding-bottom: 0px; padding-top: 0px;">Data Analyst | Data Science | Geospatial Analyst</h4>
+                    <p style="style ="text-align: left; font-size:16px; margin-top:0px;">South Tangerang, Banten | 0822-4767-8101 | <a href="mailto:wellyoktariana08@gmail.com">wellyoktariana08@gmail.com</a> | <a href="https://www.linkedin.com/in/wellyoktariana/" target="_blank">LinkedIn</a></p>
+                    <div style ="text-align: left; font-size:16px; margin-top:0px;">Data Analyst with 1+ year of experience in building machine learning models, performing spatial analysis, and leveraging data visualization techniques to deliver actionable insights that support strategic decision-making and drive business outcomes.</div>
+                    <p align="center">
+                    </p>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+    )
+    # Welly Projets
+    st.header("Projects")
+    # variable contenant la description des projets
+
+    projects = [
+        {"image": Config.project1_image, "title": "Ads Click Prediction With Machine Learning", "description": 'Predicts whether an advertisement will be clicked by a user based on a variety of user-specific factors', "link": "https://github.com/wellyokt/portofolio.git", "icon": "https://go-skill-icons.vercel.app/api/icons?i=python,scikitlearn&titles=true"}
+    ]
+    # Afficher les projets deux par deux
+    for i in range(0, len(projects), 2):
+        cols = st.columns([1, 0.1, 1])  # Ajout d'une colonne vide pour l'écart
+        for j, col in enumerate([cols[0], cols[2]]):  # Utilisation des colonnes 0 et 2 pour les projets
+            if i + j < len(projects):
+                project = projects[i + j]
+                with col:
+                    st.markdown(
+                        f"""
+                        <div style='border: 1px solid #ddd; padding: 10px; border-radius: 5px;'>
+                        """,
+                        unsafe_allow_html=True
+                    )
+
+                    st.markdown(
+                        f"""
+                        <style>
+                        .project-image {{
+                                            max-height: 13px;  /* Définir la hauteur maximale souhaitée */
+                                            width: auto;
+                                            display: block;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                        }}
+                                        </style>
+                                        """,
+                                        unsafe_allow_html=True
+                        )
+                    
+                    # Open the image
+                    image = Image.open(project["image"])
+
+                    # Display the image
+                    st.image(image, use_column_width=True, output_format='png')
+
+                    st.markdown(
+                        f"""
+                            <h2 style='text-align: center;'>{project['title']}</h2>
+                            <p style='text-align: center;'>{project['description']}</p>
+                            <p style='text-align: center;'><a href='{project['link']}' target='_blank'>Github</a></p>
+                            <p style='text-align: center;'><img src='{project['icon']}'  alt='My Skills'/></p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+                    
 
 
 if item =='Analytics':
