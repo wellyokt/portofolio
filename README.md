@@ -1,3 +1,6 @@
+postingan linkedin :
+https://www.linkedin.com/posts/wellyoktariana_im-excited-to-share-my-latest-project-a-activity-7288632679695032320-rzA3?utm_source=share&utm_medium=member_desktop
+
 # Ads Click Prediction 
 
 ## Project Overview
@@ -25,7 +28,7 @@ This project demonstrates an end-to-end machine learning application designed to
 
 ## Project Structure
 ```plaintext
-boston_house_price/
+portofolio/
 │
 ├── .streamlit/                      # Streamlit configuration
 │   └── config.toml                  # Streamlit settings
@@ -43,11 +46,15 @@ boston_house_price/
 ├── logs/                           # Application logs
 │   └── app.log
 │
+├── notebooks 
+│   ├── research.ipynb
+│
 ├── src/                            # Source code
 │   ├── __init__.py
 │   ├── data_preparation.py         # Data preprocessing
 │   ├── model.py                    # Model training
 │   └── evaluation.py               # Model evaluation
+
 │
 ├── static/                         # Static files
 │   ├── css/

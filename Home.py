@@ -21,7 +21,7 @@ from pathlib import Path
 # Set page
 
 
-st.set_page_config(page_title='Welly Oktariana Portofolio', page_icon=f"./data/Image_ic.ico", layout='wide')
+st.set_page_config(page_title='Welly Oktariana Portfolio', page_icon=f"./data/Image_ic.ico", layout='wide')
 
 # Hide button at the top right of the page
 hide_button()
@@ -85,7 +85,7 @@ if item =='Profile':
     st.markdown(
     """
     <div style="display: flex; justify-content: center;">
-        <h1> Welcome to my portofolio </h1>
+        <h1> Welcome to my portfolio </h1>
     </div>
     """,
     unsafe_allow_html=True
