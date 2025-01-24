@@ -81,8 +81,8 @@ boston_house_price/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/bayuzen19/boston_house_price.git
-cd boston_house_price
+git clone https://github.com/wellyokt/portofolio.git
+cd portofolio
 ```
 
 2. Create and activate virtual environment:
