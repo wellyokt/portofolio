@@ -257,7 +257,7 @@ if item =='Analytics':
         st.text('')
 
 
-        st.markdown("""<p style="font-size:22px; font-weight:bold; margin-bottom:20px;">Distiburion Analysis</p>""", unsafe_allow_html=True)
+        st.markdown("""<p style="font-size:22px; font-weight:bold; margin-bottom:20px;">Distribution Analysis</p>""", unsafe_allow_html=True)
         with st.container(border=True):
             numerical_cols = ['Daily_Time_Spent_on_Site', 'Age', 'Area_Income',  'Daily_Internet_Usage']
 
@@ -452,7 +452,7 @@ if item =='Predictions':
                     'Daily Internet Usage',
                     min_value=100.0,
                     max_value=300.0,
-                    value=50.0,
+                    value=150.0,
                     step =5.0,
                     help=Config.FEATURE_DESCRIPTIONS['Daily_Internet_Usage']
                 )

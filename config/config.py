@@ -44,8 +44,17 @@ class Config:
         'regressor__subsample': [0.8, 0.9, 1.0]
     }
     
-    # Cross validation settings
-    CV_FOLDS = 5
+     # Data validation rules
+    DATA_VALIDATION = {
+        'Daily_Time_Spent_on_Site': {'min': 0.0, 'max': 100.0},
+        "Age": {'min': 15, 'max': 80},
+        "Area_Income": {'min': 10000.0, 'max': 100000.0},
+        'Daily_Internet_Usage': {'min': 100.0, 'max': 300.0},
+        'Male': {'min': 0, 'max': 1},
+        'Hour': {'min': 0, 'max': 24},
+        'NOX': {'min': 0.3, 'max': 0.9},
+        'DayOfWeek': {'min': 0, 'max': 400}
+    }
     
     # Logging configuration
     LOG_FILE = LOGS_DIR / "app.log"
