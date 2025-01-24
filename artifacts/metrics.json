@@ -1,0 +1,8 @@
+{
+    "metrics": [
+        "Accuracy: 0.94",
+        "Precision: 0.97",
+        "Recall: 0.92",
+        "F1 Score: 0.94"
+    ]
+}
