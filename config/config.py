@@ -26,6 +26,7 @@ class Config:
     RANDOM_STATE = 42
     TEST_SIZE = 0.3
     NUM_FEATURES = 8
+    CV_FOLDS = 5
     TARGET_COLUMN = "Clicked_on_Ad"
     
     # Feature columns for model
@@ -34,15 +35,6 @@ class Config:
        'Daily_Internet_Usage', 'Male', 'Hour', 'DayOfWeek'
     ]
     
-    # Model hyperparameters
-    PARAMS = {
-        'regressor__max_depth': [3, 4, 5, 6, 7, 8, 9, 10],
-        'regressor__learning_rate': [0.001, 0.01, 0.1],
-        'regressor__n_estimators': [100, 200, 300],
-        'regressor__min_child_weight': [1, 3, 5],
-        'regressor__gamma': [0, 0.1, 0.2],
-        'regressor__subsample': [0.8, 0.9, 1.0]
-    }
     
      # Data validation rules
     DATA_VALIDATION = {

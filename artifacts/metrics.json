@@ -1,8 +1,12 @@
 {
-    "metrics": [
-        "Accuracy: 0.94",
-        "Precision: 0.97",
-        "Recall: 0.92",
-        "F1 Score: 0.94"
-    ]
+    "train_accuracy": 0.9714285714285714,
+    "test_accuracy": 0.9633333333333334,
+    "train_precision": 0.9822485207100592,
+    "test_precision": 0.9735099337748344,
+    "train_recall": 0.9595375722543352,
+    "test_recall": 0.9545454545454546,
+    "train_f1": 0.9707602339181286,
+    "test_f1": 0.9639344262295082,
+    "train_auc": 0.9938114365958002,
+    "test_auc": 0.9854118484255471
 }

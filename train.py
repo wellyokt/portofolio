@@ -6,7 +6,7 @@ from utils.logger import setup_logger
 logger = setup_logger('train')
 
 def main():
-    try:
+    # try:
         # Load dan prepare data
         logger.info("Loading and preparing data...")
         X_train, X_test, y_train, y_test, feature_names = load_and_prepare_data()
@@ -24,9 +24,9 @@ def main():
         logger.info(f"Test R2 Score: {metrics['train_accuracy']:.4f}")
         logger.info(f"Test RMSE: {metrics['test_accuracy']:.4f}")
         
-    except Exception as e:
-        logger.error(f"Error in training pipeline: {str(e)}")
-        raise
+    # except Exception as e:
+    #     logger.error(f"Error in training pipeline: {str(e)}")
+    #     raise
 
 if __name__ == "__main__":
     main()
